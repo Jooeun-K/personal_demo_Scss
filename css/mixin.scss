@@ -1,0 +1,26 @@
+// mixin (함수에 style을 저장)
+@mixin card-default {
+  padding: 30px;
+  margin-bottom: 20px;
+  background: #ffffff;
+}
+
+// mixin 응용편 (조건문 사용)
+@mixin font-size($size) {
+  @if $size == "small" {
+    font-size: 14px;
+  } @else if $size == "large" {
+    font-size: 24px;
+  } @else {
+    font-size: 18px;
+  }
+}
+
+// mixin 응용편 (매개변수 사용)
+@mixin solid-border-line($width, $color) {
+  border: $width solid $color;
+}
+
+// mixin, include, import 말고도 쓸 수 있는 문법이 다양한데,
+// 그건 목업 작업하다가 필요하면 검색해서 선택적으로 사용해보시길..
+// 반복문도 가능한 걸로 아는데 사실 난 써본 적이 없어용

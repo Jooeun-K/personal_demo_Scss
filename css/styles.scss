@@ -1,0 +1,57 @@
+@import "./mixin.scss";
+
+// 변수에 스타일 정보 지정
+$mainColor: red;
+$subColor: gray;
+$grid: 8px;
+
+* {
+  box-sizing: border-box;
+}
+
+// @include를 사용하면 미리 지정해놓은 @mixin을 불러와 사용할 수 있다.
+.border__red {
+  @include solid-border-line(1px, red);
+}
+
+.border__black {
+  @include solid-border-line(1px, #000);
+}
+
+// emotion에서처럼 선택자 중첩도 가능함.
+// (CSS에서는 원래 이런 중첩 안됨)
+.container {
+  background: $mainColor;
+  padding: $grid * 4;
+
+  .wrapper {
+    background: $subColor;
+    .wrapper__head {
+      @include font-size("large");
+      font-weight: 600;
+      margin-bottom: $grid;
+      padding-bottom: $grid;
+      border-bottom: 1px solid #fff;
+    }
+    .wrapper__body {
+      @include font-size("");
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      color: #666666;
+      margin-bottom: $grid;
+      width: 100%;
+
+      .wrapper__body__card {
+        @include card-default;
+        width: 24%;
+
+        &:hover {
+          background: #e1e1e1;
+        }
+      }
+    }
+  }
+}

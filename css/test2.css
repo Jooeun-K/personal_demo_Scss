@@ -1,0 +1,11 @@
+.container {
+  background: red;
+}
+
+.container .wrapper {
+  background: gray;
+}
+
+.container .wrapper2 {
+  background: #000;
+}
